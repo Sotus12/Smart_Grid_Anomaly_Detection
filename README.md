@@ -270,7 +270,7 @@ python run_evaluation.py
 | **Architecture** | STAR-Net (SDS + TDS + CSTFG + AIH) |
 | **Parameters** | 1,064,456 (~1.06M) |
 | **Loss Function** | ACFL (Asymmetric Contrastive Focal Loss) |
-| **Accuracy** | 47.46% |
+| **Accuracy** | 74.46% |
 | **Recall** | 42.11% |
 | **Precision** | 13.56% |
 | **F1 Score** | 0.205 |
