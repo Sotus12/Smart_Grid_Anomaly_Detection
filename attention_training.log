@@ -1,0 +1,25 @@
+
+Device: cuda
+
+=== Loading Data ===
+Train: 545 | Val: 117 | Test: 118
+
+=== Building Model ===
+Model: Hybrid CNN-Attention
+Parameters: 1,585,828 (Novel custom architecture)
+
+=== Training ===
+
+Epoch [1/20]
+Training:   0%|          | 0/18 [00:00<?, ?it/s]
+                                                
+Traceback (most recent call last):
+  File "C:\SOFTWARE\DL Project\src\train_attention.py", line 305, in <module>
+    main()
+  File "C:\SOFTWARE\DL Project\src\train_attention.py", line 227, in main
+    train_loss, train_acc = train_epoch(model, train_loader, criterion, optimizer, device)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\SOFTWARE\DL Project\src\train_attention.py", line 87, in train_epoch
+    images, y_a, y_b, lam = mixup_batch(images, labels, alpha=0.2)
+                            ^^^^^^^^^^^
+NameError: name 'mixup_batch' is not defined

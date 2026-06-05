@@ -1,0 +1,59 @@
+STAR-Net Training Log
+============================================================
+============================================================
+  STAR-Net: Spectral-Temporal Anomaly Reasoning Network
+  Loss:     Asymmetric Contrastive Focal Loss (ACFL)
+============================================================
+  Device: cuda
+  Data:   C:\SOFTWARE\DL Project\outputs\spectrograms
+  Epochs: 30 (5 warmup + 25 full ACFL)
+  Batch:  32 | LR: 0.0005
+
+  Dataset - Train: 545 | Val: 117 | Test: 118
+  Class mapping: {'anomaly': 0, 'normal': 1}
+  Train class dist - Class0 (anomaly): 456 (83.7%) | Class1 (normal): 89 (16.3%)
+
+  Caching datasets to memory for ultra-fast training...
+  [OK] Datasets cached successfully.
+
+  Building STAR-Net...
+  STAR-Net parameters: 1,064,456
+  Metric space dim:    64
+
+  Loss: ACFL (gamma=2.0, alpha=0.25, margin+=1.0, margin-=0.5, lambda=0.3)
+  Optimizer: AdamW (lr=0.0005, wd=1e-4)
+  Scheduler: OneCycleLR (pct_start=0.3, cos annealing)
+
+  Starting training...
+------------------------------------------------------------
+  Epoch 01/30 [Warmup (1/5)        ] | TrLoss=0.0434 (F=0.043,C=0.000) | TrAcc=0.4614 | ValLoss=0.0449 | ValAcc=0.1624 | ValF1=0.2794 | ValRec=1.0000
+    [BEST] Model saved - Val F1: 0.2794
+  Epoch 02/30 [Warmup (2/5)        ] | TrLoss=0.0434 (F=0.043,C=0.000) | TrAcc=0.4816 | ValLoss=0.0448 | ValAcc=0.1624 | ValF1=0.2794 | ValRec=1.0000
+  Epoch 03/30 [Warmup (3/5)        ] | TrLoss=0.0433 (F=0.043,C=0.000) | TrAcc=0.5386 | ValLoss=0.0464 | ValAcc=0.1624 | ValF1=0.2794 | ValRec=1.0000
+  Epoch 04/30 [Warmup (4/5)        ] | TrLoss=0.0434 (F=0.043,C=0.000) | TrAcc=0.5147 | ValLoss=0.0427 | ValAcc=0.6325 | ValF1=0.1887 | ValRec=0.2632
+  Epoch 05/30 [Warmup (5/5)        ] | TrLoss=0.0436 (F=0.043,C=0.000) | TrAcc=0.4982 | ValLoss=0.0431 | ValAcc=0.5641 | ValF1=0.1356 | ValRec=0.2105
+  Epoch 06/30 [Full ACFL           ] | TrLoss=0.0310 (F=0.043,C=0.003) | TrAcc=0.5129 | ValLoss=0.0471 | ValAcc=0.3761 | ValF1=0.2772 | ValRec=0.7368
+  Epoch 07/30 [Full ACFL           ] | TrLoss=0.0308 (F=0.044,C=0.001) | TrAcc=0.5000 | ValLoss=0.0432 | ValAcc=0.4274 | ValF1=0.1728 | ValRec=0.3684
+  Epoch 08/30 [Full ACFL           ] | TrLoss=0.0305 (F=0.044,C=0.000) | TrAcc=0.5110 | ValLoss=0.0423 | ValAcc=0.3761 | ValF1=0.1978 | ValRec=0.4737
+  Epoch 09/30 [Full ACFL           ] | TrLoss=0.0305 (F=0.043,C=0.000) | TrAcc=0.5257 | ValLoss=0.0405 | ValAcc=0.7778 | ValF1=0.1333 | ValRec=0.1053
+  Epoch 10/30 [Full ACFL           ] | TrLoss=0.0307 (F=0.044,C=0.001) | TrAcc=0.5018 | ValLoss=0.0461 | ValAcc=0.5043 | ValF1=0.3256 | ValRec=0.7368
+    [BEST] Model saved - Val F1: 0.3256
+  Epoch 11/30 [Full ACFL           ] | TrLoss=0.0305 (F=0.043,C=0.000) | TrAcc=0.4688 | ValLoss=0.0505 | ValAcc=0.8376 | ValF1=0.0000 | ValRec=0.0000
+  Epoch 12/30 [Full ACFL           ] | TrLoss=0.0304 (F=0.044,C=0.000) | TrAcc=0.5092 | ValLoss=0.0485 | ValAcc=0.8376 | ValF1=0.0000 | ValRec=0.0000
+  Epoch 13/30 [Full ACFL           ] | TrLoss=0.0305 (F=0.043,C=0.000) | TrAcc=0.5165 | ValLoss=0.0508 | ValAcc=0.4615 | ValF1=0.2025 | ValRec=0.4211
+  Epoch 14/30 [Full ACFL           ] | TrLoss=0.0304 (F=0.043,C=0.000) | TrAcc=0.5257 | ValLoss=0.0410 | ValAcc=0.3248 | ValF1=0.2178 | ValRec=0.5789
+  Epoch 15/30 [Full ACFL           ] | TrLoss=0.0302 (F=0.043,C=0.000) | TrAcc=0.5533 | ValLoss=0.0456 | ValAcc=0.3248 | ValF1=0.2178 | ValRec=0.5789
+  Epoch 16/30 [Full ACFL           ] | TrLoss=0.0304 (F=0.043,C=0.000) | TrAcc=0.5239 | ValLoss=0.0544 | ValAcc=0.1880 | ValF1=0.2748 | ValRec=0.9474
+  Epoch 17/30 [Full ACFL           ] | TrLoss=0.0303 (F=0.043,C=0.000) | TrAcc=0.5331 | ValLoss=0.0600 | ValAcc=0.1624 | ValF1=0.2794 | ValRec=1.0000
+  Epoch 18/30 [Full ACFL           ] | TrLoss=0.0302 (F=0.043,C=0.000) | TrAcc=0.5460 | ValLoss=0.0490 | ValAcc=0.2137 | ValF1=0.2203 | ValRec=0.6842
+  Epoch 19/30 [Full ACFL           ] | TrLoss=0.0302 (F=0.043,C=0.000) | TrAcc=0.5110 | ValLoss=0.0456 | ValAcc=0.2906 | ValF1=0.2385 | ValRec=0.6842
+  Epoch 20/30 [Full ACFL           ] | TrLoss=0.0304 (F=0.043,C=0.000) | TrAcc=0.5184 | ValLoss=0.0510 | ValAcc=0.5556 | ValF1=0.1875 | ValRec=0.3158
+
+  Early stopping triggered at epoch 20.
+
+============================================================
+  Training complete. Running final evaluation...
+============================================================
+
+  Optimal threshold (from val): 0.5004 (val F1=0.3415)
+

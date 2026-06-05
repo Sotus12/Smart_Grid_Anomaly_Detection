@@ -1,0 +1,7 @@
+{
+  "test_accuracy": 0.8389830508474576,
+  "test_precision": 0.0,
+  "test_recall": 0.0,
+  "test_f1": 0.0,
+  "optimal_threshold": 0.9988313317298889
+}

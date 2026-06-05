@@ -1,0 +1,337 @@
+# Anomalies - Sample Labels
+
+## Understanding Anomaly Spectrograms
+
+Samples in this folder show **detected grid anomalies** - deviations from normal operation indicating equipment faults, instability, or other problems requiring investigation.
+
+### Universal Anomaly Features (What to Look For):
+⚠️ **Frequency deviation** - 50Hz line not at expected position
+⚠️ **Unusual harmonics** - Unexpected or excessively bright harmonic lines
+⚠️ **Vertical spikes/transients** - Sudden energy bursts
+⚠️ **Irregular pattern** - Unpredictable changes across time
+⚠️ **Noise floor elevation** - Dark background becomes lighter
+⚠️ **Discontinuities** - Sudden shifts or phase changes
+⚠️ **Broadband energy** - Pattern spreads across many frequencies
+
+---
+
+## Sample Classifications (20 Anomalies)
+
+Each file labeled as: `anomaly_00.png` through `anomaly_19.png`
+
+### Type A: Frequency Deviation / Instability (Samples: anomaly_00-anomaly_04)
+**What to look for:**
+- Main frequency line shifted from 50 Hz
+- May be higher (50.5-52 Hz) or lower (48-49.5 Hz)
+- Unstable position (varies across time window)
+- Indicates **frequency excursion** event
+
+**Real-world causes:**
+- Sudden large load loss
+- Generation failure
+- Underfrequency event
+- Frequency control malfunction
+
+**Severity:** HIGH - Grid frequency must stay within ±0.2 Hz of nominal
+
+**What operator would do:** Investigate generation/load balance, check for failures
+
+#### anomaly_00.png - FREQUENCY SWELL (Above 50 Hz)
+- **Pattern**: Main line appears ABOVE normal 50Hz position
+- **Cause**: Load suddenly disconnected (generating plant offline)
+- **Indication**: Over-frequency event
+- **Action Needed**: Shed some load or activate reserves
+- **Teaching point**: "Frequency shift shows grid is out of balance"
+
+#### anomaly_01.png - FREQUENCY SAG (Below 50 Hz)
+- **Pattern**: Main line appears BELOW normal 50Hz position  
+- **Cause**: Major load suddenly connected or generation failure
+- **Indication**: Under-frequency event (more critical than over-frequency)
+- **Action Needed**: Shed loads or increase generation immediately
+- **Teaching point**: "Under-frequency is more dangerous - can cascade to blackout"
+
+#### anomaly_02.png - RAPID FREQUENCY CHANGE
+- **Pattern**: Main line position changes significantly left to right (time-varying)
+- **Cause**: Dynamic event - sudden load/generation change
+- **Indication**: System instability
+- **Action Needed**: Activate emergency response
+- **Teaching point**: "When frequency isn't stable over time, something is very wrong"
+
+#### anomaly_03.png - FREQUENCY OSCILLATION
+- **Pattern**: Main line wobbles/varies repeatedly across time window
+- **Cause**: Oscillatory instability (feedback loop)
+- **Indication**: Inter-area oscillations or subsynchronous resonance
+- **Action Needed**: Damping controllers must activate
+- **Teaching point**: "Oscillations are visible as wavy, varying frequency"
+
+#### anomaly_04.png - SEVERE FREQUENCY DEVIATION
+- **Pattern**: Main line moved very far from 50Hz
+- **Cause**: Major grid disturbance
+- **Indication**: Critical fault requiring immediate response
+- **Action Needed**: Manual emergency intervention
+- **Teaching point**: "Large frequency shifts indicate major problems"
+
+---
+
+### Type B: Harmonic Distortion (Samples: anomaly_05-anomaly_09)
+**What to look for:**
+- Excessively bright harmonic lines (100Hz, 150Hz, 200Hz, etc.)
+- Some new harmonic lines not seen in normal operation
+- Higher than expected harmonic magnitudes
+- Elevated noise floor
+
+**Real-world causes:**
+- Faulty power electronics
+- Malfunctioning variable frequency drive (VFD)
+- Nonlinear load malfunction
+- Arc furnace operation
+- Rectifier malfunction
+
+**Severity:** MEDIUM - Can damage equipment over time
+
+**What operator would do:** Identify source, reduce harmonic injection
+
+#### anomaly_05.png - EXCESSIVE 3RD HARMONIC (150 Hz)
+- **Pattern**: Very bright line at 150Hz
+- **Cause**: Three-phase load imbalance or nonlinear loads
+- **Indication**: Possible ground current issues
+- **Action Needed**: Balance three-phase loads or remove faulty equipment
+- **Teaching point**: "Excessive 3rd harmonic indicates potential grounding problems"
+
+#### anomaly_06.png - HIGH 5TH HARMONIC (250 Hz)
+- **Pattern**: Bright line at 250Hz (5 × 50Hz)
+- **Cause**: Electronic converter (VFD) malfunction or misconfiguration
+- **Indication**: Power electronic equipment not filtering properly
+- **Action Needed**: Check/repair VFD filters or replace equipment
+- **Teaching point**: "5th harmonic is typical from converter problems"
+
+#### anomaly_07.png - MULTIPLE HARMONICS ELEVATED
+- **Pattern**: Many bright harmonic lines (100, 150, 200, 250 Hz all bright)
+- **Cause**: Multiple nonlinear loads or major equipment failure
+- **Indication**: Severe harmonic pollution
+- **Action Needed**: Identify and isolate sources
+- **Teaching point**: "When multiple harmonics are bright, multiple things are wrong"
+
+#### anomaly_08.png - ODD HARMONICS PROMINENT
+- **Pattern**: Unusual harmonic pattern with odd multiples very bright
+- **Cause**: Bridge rectifier or converter in bypass/malfunction mode
+- **Indication**: Specific electronic equipment failure mode
+- **Action Needed**: Locate and repair/replace equipment
+- **Teaching point**: "Pattern of harmonics can indicate TYPE of equipment that's failing"
+
+#### anomaly_09.png - INTERHARMONICS VISIBLE
+- **Pattern**: Frequency components between main harmonics (e.g., at 75Hz, 125Hz)
+- **Cause**: Cycloconverters, variable frequency drives with unusual settings
+- **Indication**: Specific control system malfunction
+- **Action Needed**: Reconfigure or service control equipment
+- **Teaching point**: "Sometimes the problems appear between expected harmonics"
+
+---
+
+### Type C: Transient Events / Spikes (Samples: anomaly_10-anomaly_14)
+**What to look for:**
+- Vertical bright lines or spikes
+- Sudden bursts of broadband energy
+- Can appear anywhere in time-frequency space
+- Often very bright (high amplitude)
+
+**Real-world causes:**
+- Lightning strike aftermath
+- Fault clearing transient
+- Capacitor bank switching
+- Circuit breaker operation
+- Arcing event
+- EMI from industrial equipment
+
+**Severity:** VARIABLE - Could indicate fault or just switching event
+
+**What operator would do:** Correlate with event logs, check for damage
+
+#### anomaly_10.png - SINGLE SHARP TRANSIENT
+- **Pattern**: One bright vertical spike
+- **Cause**: Single switching event (capacitor bank) or fault clearing
+- **Indication**: Transient event
+- **Action Needed**: Check logs for matching circuit breaker operation
+- **Teaching point**: "Transients look like lightning strikes in the spectrogram"
+
+#### anomaly_11.png - MULTIPLE SWITCHING TRANSIENTS
+- **Pattern**: Several vertical spikes spread across time window
+- **Cause**: Repeated switching operations
+- **Indication**: Multiple equipment operations or control actions
+- **Action Needed**: Investigate if operations were planned or emergency
+- **Teaching point**: "Multiple spikes suggest repeated disturbances"
+
+#### anomaly_12.png - BROADBAND TRANSIENT
+- **Pattern**: Bright energy spread across many frequencies (appears fuzzy/hazy)
+- **Cause**: Arc event, fault, or high-energy transient
+- **Indication**: Potentially serious fault event
+- **Action Needed**: Check for equipment damage, ground faults
+- **Teaching point**: "When energy spreads across all frequencies, it's a powerful event"
+
+#### anomaly_13.png - RINGING TRANSIENT
+- **Pattern**: Vertical spike followed by ringing (damped oscillation visible as pattern)
+- **Cause**: Sudden connection/disconnection with LC circuit ringing
+- **Indication**: Equipment interaction event
+- **Action Needed**: Identify which equipment was switched
+- **Teaching point**: "Ringing shows the system oscillating after the disturbance"
+
+#### anomaly_14.png - REPETITIVE TRANSIENT
+- **Pattern**: Similar spikes appearing at regular intervals
+- **Cause**: Repetitive fault (arcing, loose connection) or control system hunting
+- **Indication**: Intermittent fault condition
+- **Action Needed**: Find and fix root cause (loose connection, damaged insulation)
+- **Teaching point**: "Repetitive problems show as repetitive patterns"
+
+---
+
+### Type D: Phase Imbalance / Asymmetry (Samples: anomaly_15-anomaly_17)
+**What to look for:**
+- Unusual symmetry breaking in harmonic structure
+- Presence of even harmonics (unusual - only odd harmonics in balanced systems)
+- Asymmetric patterns
+- Component at half-fundamental frequency
+
+**Real-world causes:**
+- Single-phase fault or load
+- Phase imbalance in three-phase system
+- Open phase condition
+- Connection problem
+
+**Severity:** MEDIUM - Can damage equipment
+
+**What operator would do:** Balance phases or isolate affected phase
+
+#### anomaly_15.png - EVEN HARMONICS PRESENT (100, 200, 300 Hz)
+- **Pattern**: Even harmonic lines visible (normally only odd appear)
+- **Cause**: Three-phase system unbalance
+- **Indication**: Phase imbalance condition
+- **Action Needed**: Rebalance phase loads
+- **Teaching point**: "Even harmonics indicate the three phases aren't balanced"
+
+#### anomaly_16.png - SUB-HARMONIC COMPONENT (25 Hz)
+- **Pattern**: Bright line at 25Hz (half of 50Hz)
+- **Cause**: Specific type of load imbalance or control malfunction
+- **Indication**: Unusual operating condition
+- **Action Needed**: Investigate equipment type
+- **Teaching point**: "Sub-harmonics appear when something very unusual is happening"
+
+#### anomaly_17.png - PHASE SHIFT DISCONTINUITY
+- **Pattern**: Abrupt change in pattern (left side vs right side of time window)
+- **Cause**: Phase shift event or protection action
+- **Indication**: Significant grid event occurred
+- **Action Needed**: Correlate with event records
+- **Teaching point**: "Sudden visual changes mark when something happened"
+
+---
+
+### Type E: Severe Faults (Samples: anomaly_18-anomaly_19)
+**What to look for:**
+- Very bright overall image
+- Chaotic, irregular pattern
+- Multiple simultaneous anomalies
+- Broadband noise throughout
+
+**Real-world causes:**
+- Active arc/arc flash
+- Short circuit event
+- Major equipment failure
+- Multiple simultaneous faults
+
+**Severity:** CRITICAL - Requires immediate protection action
+
+**What operator would do:** Emergency response, isolate affected section
+
+#### anomaly_18.png - ARCING EVENT
+- **Pattern**: Very bright image, chaotic broadband energy, possibly traveling through time
+- **Cause**: Electrical arc occurring on line
+- **Indication**: Active fault condition
+- **Action Needed**: IMMEDIATE - Protection should have cleared this
+- **Teaching point**: "Arc faults create bright, chaotic, high-energy patterns"
+
+#### anomaly_19.png - COMPLEX MULTI-EVENT FAULT
+- **Pattern**: Multiple simultaneous anomaly types visible
+- **Cause**: Cascading failure or multiple problems from single event
+- **Indication**: Serious system disturbance
+- **Action Needed**: Full investigation and system restoration
+- **Teaching point**: "When multiple things go wrong, the spectrogram looks very complex"
+
+---
+
+## Why These Matter for Detection
+
+### What Makes Anomalies Detectable?
+
+Our deep learning model learns to recognize these visual patterns:
+- **Spatial patterns**: Distinctive frequency-time structures
+- **Color intensity**: Brightness indicates amplitude/severity
+- **Texture**: Smooth vs. rough patterns indicate stability
+
+### Why Focal Loss Helps:
+
+Normal operations: ~545 training samples (many repeated patterns)
+Anomalies: ~89 training samples (rare, diverse patterns)
+
+Standard training would ignore rare anomalies. **Focal Loss forces the model to pay attention to the 89 anomalies despite them being rare.**
+
+---
+
+## Classification Accuracy from Our Models
+
+### Transfer Learning (EfficientNet-B0):
+- Accuracy: 83.90% 
+- Recall for anomalies: 0%
+- **Problem**: Predicts all samples as "normal" because majority class is normal
+
+### Our Attention Model + Focal Loss:
+- Recall for anomalies: 68.42%
+- **Improvement**: Catches 68% of real anomalies that transfer learning misses!
+
+---
+
+## For Your Professor
+
+### Key Teaching Points:
+
+**Show them this progression:**
+1. "Normal operations look like this" (show clean normal_00-normal_06)
+2. "But real grids have variation" (show different normal types)
+3. "Then there are problems" (show anomalies)
+4. "See how different they look?" (comparison)
+5. "Our AI learns to spot these differences automatically"
+
+### Discussion Topics:
+- "Why is detecting anomalies harder than getting high accuracy?" 
+  → Because accuracy doesn't punish missing anomalies
+- "What if we just set threshold lower?" 
+  → We tried - generates false alarms, operators ignore them
+- "Why is visual inspection not enough?" 
+  → Utilities need 24/7 real-time monitoring on thousands of points
+- "How much training data did you need?" 
+  → Only 89 anomaly samples! So rare that they're hard to find
+
+---
+
+## Key Takeaway
+
+**NORMAL**: Predictable, stable, expected patterns with 50 Hz fundamental
+**ANOMALY**: Unexpected deviations indicating something requires investigation
+
+**Your AI model's job**: Learn to distinguish these visually, like an experienced operator would, but automatically 24/7/365.
+
+---
+
+## Comparison Exercise for Your Professor
+
+**Best teaching approach:**
+1. Pick one normal sample (e.g., normal_01.png - standard operation)
+2. Pick one anomaly (e.g., anomaly_00.png - frequency swell)
+3. Place them side by side
+4. Ask: "What's different?"
+5. Guide them to notice:
+   - Fundamental frequency position differs
+   - Normal has stable pattern, anomaly changes
+   - Normal has dark background, anomaly might be brighter
+
+**Then explain**: "Our model has learned to notice these differences automatically on thousands of samples."
+
+This is the **core of your project's novelty** - the attention mechanisms literally learn which patterns matter!

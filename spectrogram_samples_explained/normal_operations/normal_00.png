@@ -1,0 +1,247 @@
+# Normal Operations - Sample Labels
+
+## Understanding Normal Operation Spectrograms
+
+All samples in this folder show **healthy grid operation**. Look for these characteristics:
+
+### Universal Normal Operation Features:
+✓ Bright horizontal line at **50 Hz** (fundamental grid frequency)
+✓ Fainter horizontal lines at **100 Hz, 150 Hz, 200 Hz** (harmonics)
+✓ Mostly **dark background** (clean signal, low noise)
+✓ **Consistent pattern** when scanning left to right
+✓ **No spikes or sudden changes**
+✓ **Predictable, stable structure**
+
+---
+
+## Sample Classifications (19 Normal Operations)
+
+Each file labeled as: `normal_00.png` through `normal_18.png`
+
+### Category 1: Clean, Low-Harmonic Operations (Samples: normal_00-normal_06)
+**What to look for:**
+- Very clear 50 Hz line (brightest feature)
+- Minimal harmonic content
+- Very dark background
+- Stable throughout measurement window
+
+**Indication:**
+- Linear loads (resistive loads)
+- Well-conditioned grid section
+- Minimal nonlinear equipment
+- Excellent power quality
+
+**Real-world example:** Residential area with mostly heating/lighting loads
+
+---
+
+### Category 2: Normal with Moderate Harmonics (Samples: normal_07-normal_12)
+**What to look for:**
+- Clear 50 Hz fundamental line
+- Visible 100 Hz and 150 Hz harmonic lines (fainter than fundamental)
+- Slightly elevated noise floor
+- Regular pattern progression
+
+**Indication:**
+- Normal industrial area or mixed loads
+- Some variable speed drives or power electronics present
+- Harmonic content within acceptable limits (<5% THD)
+- Standard grid operation
+
+**Real-world example:** Commercial area with air conditioning, elevators, some variable loads
+
+---
+
+### Category 3: Normal High-Load Operations (Samples: normal_13-normal_18)
+**What to look for:**
+- Very bright 50 Hz line (strong signal)
+- Bright harmonic lines (100, 150, 200 Hz visible)
+- More intense overall image
+- Pattern consistent across time
+
+**Indication:**
+- Peak load periods
+- Multiple large loads operating
+- Higher overall power transmission
+- Slightly elevated but still-normal harmonic content
+
+**Real-world example:** Industrial area during day shift, heavy machinery running
+
+---
+
+## Visual Interpretation Tips
+
+### For Your Professor:
+
+**Show them this:**
+1. Point to the bright line at 50 Hz
+2. Explain "This is the fundamental grid frequency - the heartbeat of the power system"
+3. Show the fainter lines above it
+4. Explain "These are harmonics - multiples of 50 Hz from nonlinear equipment"
+5. Explain "All samples in this folder are NORMAL - no equipment faults, clean operation"
+
+**Key Teaching Points:**
+- "All normal operations look like this - with variations in brightness based on load"
+- "The 50 Hz line never moves - it's always at the same frequency"
+- "The background stays dark - no noise or interference"
+- "From left to right (time), the pattern is consistent - stable operation"
+
+---
+
+## Detailed Sample Descriptions
+
+### normal_00.png - VERY CLEAN OPERATION
+- **Appearance**: Minimal visual content, very dark, thin 50Hz line visible
+- **Load Type**: Very light load period or residential area
+- **Harmonics**: Almost none visible (THD <2%)
+- **What it shows**: Ideal power quality - what utilities want to see
+- **Teaching point**: "When power quality is excellent, the spectrogram is almost empty!"
+
+### normal_01.png - STANDARD DAILY OPERATION  
+- **Appearance**: Clear 50Hz line, faint harmonics visible
+- **Load Type**: Typical daytime mixed loads
+- **Harmonics**: Moderate (100Hz, 150Hz visible)
+- **What it shows**: Normal urban/suburban grid operation
+- **Teaching point**: "This is what most of the day looks like - stable and boring (which is good!)"
+
+### normal_02.png - MORNING PEAK
+- **Appearance**: Bright 50Hz line, multiple harmonic lines visible
+- **Load Type**: Morning peak demand
+- **Harmonics**: More visible (THD ~3-4%)
+- **What it shows**: Peak load but still stable operation
+- **Teaching point**: "Even when demand is high, the pattern remains predictable"
+
+### normal_03.png - INDUSTRIAL AREA
+- **Appearance**: Very bright overall, strong harmonics
+- **Load Type**: Heavy industrial loads
+- **Harmonics**: Multiple clear harmonic lines
+- **What it shows**: Industrial grid section during operation
+- **Teaching point**: "More equipment = more harmonics, but still within normal limits"
+
+### normal_04.png - EVENING STEADY STATE
+- **Appearance**: Stable, consistent pattern, moderate brightness
+- **Load Type**: Evening base load
+- **Harmonics**: Normal evening harmonic profile
+- **What it shows**: Evening stable operation
+- **Teaching point**: "Different times of day show different load levels, but same stable structure"
+
+### normal_05.png - LIGHT LOAD PERIOD
+- **Appearance**: Dim overall, clear single 50Hz line, minimal harmonics
+- **Load Type**: Off-peak or night operation
+- **Harmonics**: Minimal
+- **What it shows**: Night/off-peak period with very light loads
+- **Teaching point**: "Lower load = simpler spectrogram, but still showing the 50Hz fundamental"
+
+### normal_06.png - STEADY STATE REFERENCE
+- **Appearance**: Classic textbook normal operation pattern
+- **Load Type**: Reference/ideal condition
+- **Harmonics**: Balanced visible harmonics
+- **What it shows**: Best example of healthy grid operation
+- **Teaching point**: "This is the 'ideal normal' - show this as reference"
+
+### normal_07.png - COMMERCIAL LOADS (AC + Elevators)
+- **Appearance**: Bright fundamental, visible 100Hz, 150Hz, 200Hz
+- **Load Type**: Commercial building (cooling + elevator systems)
+- **Harmonics**: Clear harmonic series
+- **What it shows**: Typical commercial building power consumption
+- **Teaching point**: "Modern building equipment creates these harmonic patterns"
+
+### normal_08.png - MOTOR-DOMINANT LOADS
+- **Appearance**: Strong fundamental, irregular harmonic pattern
+- **Load Type**: Area with running motors (fans, pumps, compressors)
+- **Harmonics**: Characteristic motor harmonic signature
+- **What it shows**: Industrial motor operation (normal)
+- **Teaching point**: "Motors have distinctive harmonic fingerprints"
+
+### normal_09.png - MIXED RESIDENTIAL
+- **Appearance**: Moderate brightness, subtle harmonics
+- **Load Type**: Residential area (homes, shops)
+- **Harmonics**: Mix of various loads creating complex pattern
+- **What it shows**: Typical residential grid section
+- **Teaching point**: "Many different household devices each contribute to the spectrogram"
+
+### normal_10.png - HIGH-POWER TRANSMISSION
+- **Appearance**: Very bright, clear harmonic structure
+- **Load Type**: High-voltage transmission section
+- **Harmonics**: Multiple distinct harmonic lines
+- **What it shows**: Major transmission line carrying heavy load
+- **Teaching point**: "Bigger transmission lines show stronger, brighter signals"
+
+### normal_11.png - SUSTAINED PEAK LOAD
+- **Appearance**: Consistently bright across entire time window
+- **Load Type**: Peak demand sustained over measurement period
+- **Harmonics**: Strong harmonic content throughout
+- **What it shows**: Sustained heavy load operation (stable)
+- **Teaching point**: "Even sustained peak loads remain stable in normal operation"
+
+### normal_12.png - EVENING RAMP-UP
+- **Appearance**: Gradually changing brightness pattern left to right
+- **Load Type**: Loads increasing from afternoon to evening
+- **Harmonics**: Gradually increasing harmonic content
+- **What it shows**: Smooth load increase without instability
+- **Teaching point**: "Load changes happen gradually and smoothly - no sudden shifts"
+
+### normal_13.png - INDUSTRIAL PEAK HOURS
+- **Appearance**: Very bright, strong all harmonics
+- **Load Type**: Industrial facility at peak production
+- **Harmonics**: All main harmonics strongly visible
+- **What it shows**: Maximum normal industrial load
+- **Teaching point**: "Industrial areas have strongest signals but remain stable"
+
+### normal_14.png - VARIABLE SPEED DRIVE OPERATION
+- **Appearance**: Complex harmonic structure, multiple frequency components
+- **Load Type**: Variable frequency drives (VFDs) - modern adjustable motors
+- **Harmonics**: Non-traditional harmonic pattern from VFD switching
+- **What it shows**: Modern industrial equipment signature (normal VFD operation)
+- **Teaching point**: "Modern electronic equipment creates more complex patterns"
+
+### normal_15.png - REGENERATIVE BRAKING (Elevator/Train)
+- **Appearance**: Unusual but structured harmonic pattern
+- **Load Type**: Regenerative braking event (normal)
+- **Harmonics**: Specific pattern from bidirectional power flow
+- **What it shows**: Equipment returning power to grid (normal in modern systems)
+- **Teaching point**: "Not all signals are just consumption - some show power being returned!"
+
+### normal_16.png - DISTRIBUTED SOLAR INJECTION (Daytime)
+- **Appearance**: Smooth pattern with some additional frequency components
+- **Load Type**: Solar farms contributing to grid (daytime)
+- **Harmonics**: Solar inverter characteristic pattern
+- **What it shows**: Distributed generation integration (normal)
+- **Teaching point**: "Renewable energy sources have characteristic signatures too"
+
+### normal_17.png - GRID STABILIZING OPERATIONS
+- **Appearance**: Controlled, very structured pattern
+- **Load Type**: Grid support equipment active (capacitors, reactors)
+- **Harmonics**: Balanced pattern from compensation equipment
+- **What it shows**: Active grid management (normal operation)
+- **Teaching point**: "Utility equipment actively maintains grid stability - you can see it!"
+
+### normal_18.png - TRANSITION TO NIGHT OPERATION
+- **Appearance**: Gradually dimming pattern from left to right
+- **Load Type**: Loads decreasing as day ends
+- **Harmonics**: Gradually reducing harmonic content
+- **What it shows**: Smooth operational transition (normal)
+- **Teaching point**: "Time-of-day patterns are visible in spectrograms - power consumption cycles"
+
+---
+
+## Key Takeaway About Normal Operations
+
+**Everything in this folder is SAFE and NORMAL.**
+
+What makes it normal:
+1. **50 Hz Frequency Stability**: Main line never moves from 50 Hz
+2. **Predictable Harmonics**: Only expected multiples of 50 Hz appear
+3. **Gradual Changes**: Any changes happen smoothly over time
+4. **No Spikes or Noise**: Background stays mostly dark
+5. **Consistent Structure**: Pattern looks similar throughout measurement window
+
+**When you see these patterns in the grid, operators don't need to intervene.**
+
+---
+
+## For Comparison
+
+To understand what NORMAL means, you need to see what ABNORMAL looks like. See the `../anomalies/` folder for comparison.
+
+The contrast will make it crystal clear what "normal" really means in this dataset!

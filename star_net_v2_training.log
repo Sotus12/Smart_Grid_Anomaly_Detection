@@ -1,0 +1,90 @@
+STAR-Net v2 Training Log
+============================================================
+============================================================
+  STAR-Net v2: High-Recall Edition
+  Loss: ACFL (alpha=0.75) + Weighted CE (compound)
+  Target: >85% Recall on Anomaly Class
+============================================================
+  Device: cuda
+  Epochs: 30 (5 warmup + 25 full ACFL)
+  Batch:  32 | LR: 0.001
+  ACFL: gamma=3.0, alpha=0.75, margin+=1.5, lambda=0.2
+
+  Class mapping: {'anomaly': 0, 'normal': 1}
+  Train: 456 normal | 89 anomaly (ratio 5.1:1)
+  Val: 117 | Test: 118
+
+  CE class weights: normal=0.004, anomaly=0.022
+
+  Caching datasets to memory...
+  [OK] All datasets cached.
+
+  Building STAR-Net v2...
+  Parameters: 1,064,456
+
+  ACFL: gamma=3.0, alpha=0.75 [ANOMALY UPWEIGHTED]
+  Compound loss: 0.7*ACFL + 0.3*WeightedCE
+  Optimizer: AdamW lr=0.001, wd=1e-4
+  Scheduler: OneCycleLR (pct_start=0.40, div=25)
+
+  Starting training...
+------------------------------------------------------------
+  Epoch 01/30 [Warmup (1/5)        ] | TrLoss=0.2372 TrRec=0.6971 | ValLoss=0.0316 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=1.0000 [thresh=0.010]
+    [BEST] Saved — Val F1(tuned)=0.2794 Recall(tuned)=1.0000 Prec=0.1624 thresh=0.0100
+  Epoch 02/30 [Warmup (2/5)        ] | TrLoss=0.2317 TrRec=0.9015 | ValLoss=0.0326 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=1.0000 [thresh=0.010]
+  Epoch 03/30 [Warmup (3/5)        ] | TrLoss=0.2251 TrRec=0.9811 | ValLoss=0.0347 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=1.0000 [thresh=0.010]
+  Epoch 04/30 [Warmup (4/5)        ] | TrLoss=0.2174 TrRec=1.0000 | ValLoss=0.0372 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=1.0000 [thresh=0.010]
+  Epoch 05/30 [Warmup (5/5)        ] | TrLoss=0.2069 TrRec=1.0000 | ValLoss=0.0415 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=1.0000 [thresh=0.010]
+  Epoch 06/30 [Full ACFL           ] | TrLoss=0.2484 TrRec=0.9481 | ValLoss=0.1007 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=1.0000 [thresh=0.010]
+  Epoch 07/30 [Full ACFL           ] | TrLoss=0.2307 TrRec=1.0000 | ValLoss=0.1183 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=1.0000 [thresh=0.010]
+  Epoch 08/30 [Full ACFL           ] | TrLoss=0.2245 TrRec=1.0000 | ValLoss=0.1174 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=1.0000 [thresh=0.010]
+  Epoch 09/30 [Full ACFL           ] | TrLoss=0.2204 TrRec=1.0000 | ValLoss=0.1194 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=1.0000 [thresh=0.010]
+  Epoch 10/30 [Full ACFL           ] | TrLoss=0.2190 TrRec=1.0000 | ValLoss=0.1179 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=1.0000 [thresh=0.010]
+  Epoch 11/30 [Full ACFL           ] | TrLoss=0.2126 TrRec=1.0000 | ValLoss=0.1265 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=1.0000 [thresh=0.010]
+  Epoch 12/30 [Full ACFL           ] | TrLoss=0.2120 TrRec=1.0000 | ValLoss=0.1463 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=1.0000 [thresh=0.010]
+  Epoch 13/30 [Full ACFL           ] | TrLoss=0.2086 TrRec=1.0000 | ValLoss=0.1368 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=1.0000 [thresh=0.010]
+  Epoch 14/30 [Full ACFL           ] | TrLoss=0.2093 TrRec=1.0000 | ValLoss=0.1227 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=0.3684 [thresh=0.665]
+    [BEST] Saved — Val F1(tuned)=0.2857 Recall(tuned)=0.3684 Prec=0.2333 thresh=0.6650
+  Epoch 15/30 [Full ACFL           ] | TrLoss=0.2090 TrRec=1.0000 | ValLoss=0.1370 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=0.1579 [thresh=0.670]
+  Epoch 16/30 [Full ACFL           ] | TrLoss=0.2047 TrRec=1.0000 | ValLoss=0.1177 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=0.0526 [thresh=0.690]
+  Epoch 17/30 [Full ACFL           ] | TrLoss=0.2018 TrRec=1.0000 | ValLoss=0.1226 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=0.3158 [thresh=0.670]
+  Epoch 18/30 [Full ACFL           ] | TrLoss=0.2051 TrRec=1.0000 | ValLoss=0.1259 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=0.0526 [thresh=0.645]
+  Epoch 19/30 [Full ACFL           ] | TrLoss=0.2032 TrRec=1.0000 | ValLoss=0.1372 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=1.0000 [thresh=0.010]
+  Epoch 20/30 [Full ACFL           ] | TrLoss=0.2026 TrRec=1.0000 | ValLoss=0.1360 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=0.3158 [thresh=0.675]
+    [BEST] Saved — Val F1(tuned)=0.3158 Recall(tuned)=0.3158 Prec=0.3158 thresh=0.6748
+  Epoch 21/30 [Full ACFL           ] | TrLoss=0.2037 TrRec=1.0000 | ValLoss=0.1300 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=0.3684 [thresh=0.650]
+  Epoch 22/30 [Full ACFL           ] | TrLoss=0.2002 TrRec=1.0000 | ValLoss=0.1453 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=0.1053 [thresh=0.685]
+  Epoch 23/30 [Full ACFL           ] | TrLoss=0.2085 TrRec=1.0000 | ValLoss=0.1427 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=0.0526 [thresh=0.685]
+  Epoch 24/30 [Full ACFL           ] | TrLoss=0.2029 TrRec=1.0000 | ValLoss=0.1416 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=1.0000 [thresh=0.010]
+  Epoch 25/30 [Full ACFL           ] | TrLoss=0.2042 TrRec=1.0000 | ValLoss=0.1395 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=1.0000 [thresh=0.010]
+  Epoch 26/30 [Full ACFL           ] | TrLoss=0.2044 TrRec=1.0000 | ValLoss=0.1373 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=1.0000 [thresh=0.010]
+  Epoch 27/30 [Full ACFL           ] | TrLoss=0.2015 TrRec=1.0000 | ValLoss=0.1385 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=1.0000 [thresh=0.010]
+  Epoch 28/30 [Full ACFL           ] | TrLoss=0.2024 TrRec=1.0000 | ValLoss=0.1424 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=1.0000 [thresh=0.010]
+  Epoch 29/30 [Full ACFL           ] | TrLoss=0.2052 TrRec=1.0000 | ValLoss=0.1443 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=1.0000 [thresh=0.010]
+  Epoch 30/30 [Full ACFL           ] | TrLoss=0.2042 TrRec=1.0000 | ValLoss=0.1433 ValF1=0.2794 | ValRec(default)=1.0000 ValRec(tuned)=1.0000 [thresh=0.010]
+
+============================================================
+  Training complete. Running final evaluation...
+============================================================
+
+  Recall-optimized threshold (from val): 0.6748
+  Val Recall=0.3158 | Val Precision=0.3158 | Val F1=0.3158
+
+  --- Final Test Set Results ---------------------------------
+  Accuracy:   0.7034
+  Precision:  0.1364
+  Recall:     0.1579  [Anomaly catch rate]
+  F1 Score:   0.1463
+  ROC-AUC:    0.4652
+  Threshold:  0.6748
+  Confusion Matrix:
+    TN=80  FP=19
+    FN=16  TP=3
+
+  [INFO] STAR-Net v2: 15.79% | GAResNet: 78.95%
+  Gap: 63.16% — try lowering min-precision threshold
+
+  Results saved: C:\SOFTWARE\DL Project\models\star_net_v2_metrics.json
+  Best model:   C:\SOFTWARE\DL Project\models\star_net_v2_best.pth
+
+  [DONE] STAR-Net v2 training complete.
